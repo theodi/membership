@@ -33,8 +33,9 @@ Mink.Then(/^the selector "([^"]*)" should be contained inside the "([^"]*)" sele
 });
 
 
-Mink.Then(/^the first letter of each header and input element should be wrapped in a span$/, function (callback) {
-  [
+Mink.Then(/^the first letter of each header and input element should be wrapped in a span$/, function () {
+
+  steps = [
     "<span>M</span>embers benefit from:",
     "<span>T</span>ax Information:",
     "<span>V</span>AT Number",
@@ -64,11 +65,9 @@ Mink.Then(/^the first letter of each header and input element should be wrapped 
     "<span>P</span>ostcode",
     "<span>A</span>dditional Information:",
     "<span>I</span> accept the Terms and Conditions",
-  ].forEach(function(i) {
-    Mink.runStep('I should see "' + i +'"', function(err) {
-      expect(err).to.be.a('null');
-    });
+  ].map(function(i) {
+    return 'I should see "' + i +'"'
   })
 
-  callback();
+  Mink.manyStep(steps);
 });

@@ -13,7 +13,7 @@ Feature: Custom Javascript
     And I should see the text "Choose what to pay" in the "#my_plan h2" element
     And I should see the text "Organisation" in the "label[for=subscription_customer_attributes_organization]" element
     And I should see the text "Expiry" in the "label[for=subscription_payment_profile_attributes_expiration_month]" element
-  #  And the first letter of each header and input element should be wrapped in a span
+    And the first letter of each header and input element should be wrapped in a span
 
   Scenario: Change component box to a select
     Then the "select[id='component_allocated_quantity_152654']" current option contain "30"
