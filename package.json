@@ -1,0 +1,24 @@
+{
+  "name": "membership",
+  "version": "1.0.0",
+  "description": "Tests and associated gubbins for the ODI membership systme",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/cucumber.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theodi/membership.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theodi/membership/issues"
+  },
+  "homepage": "https://github.com/theodi/membership#readme",
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "cucumber": "^1.0.0",
+    "cucumber-mink": "^1.2.3"
+  }
+}
