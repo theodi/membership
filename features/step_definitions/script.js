@@ -1,5 +1,4 @@
 var Mink = require('cucumber-mink');
-var pry = require("pryjs")
 var Fs = require("fs")
 
 var expect = require('chai').expect
