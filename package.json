@@ -19,6 +19,7 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "cucumber": "^1.0.0",
-    "cucumber-mink": "^1.2.3"
+    "cucumber-mink": "^1.2.3",
+    "dotenv": "^2.0.0"
   }
 }

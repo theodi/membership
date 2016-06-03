@@ -1,9 +1,13 @@
 language: node_js
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-  - sleep 3 # give xvfb some time to start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+- sleep 3
 node_js:
-  - '5.10.1'
+- 5.10.1
 script:
-  - 'npm test'
+- npm test
+env:
+  global:
+  - secure: tEpiPcEIlxJTP8qb7uDUzHFy+gjgTy3NqndMBhk+qr/hO6CXY7kDON9zdfZL8pdHys0LYf3UlN0chrceYmOQnU9C4b5Rwd+Yo7QjNqBpVFtrDCKzloiplxckcAttTDlwnP1NlnB+CqkC0ln5Z7fw1tIAvNptA4KDPY1xANFCSrRk0LkyNkMSzeF+DB77I3ZN2MdDM2b+Wao7ZmVihskDmTxr+SPBBxoO/YfQzDDCRNOhA8EhsT7SsK7guRW0657UaXok89yXbOb5n1pyvrZRlyrl91RjjMwtfFdQNebhKapRmaU0KwhLxRUblK8qys2g3aRHylLroplAFSIlezq75SFpd2HeX6ZuJWQYOLgCAcWryK3L8+YuXqqa4IKFmYuYRab/tQSetuyucsCFUf8Eo5nkSV8t79ucTMOwDY8P7cyiEBkX4g9VBjkmiTt0PoBb24UuBIfldko+Z62XmviBEzlvmSqZ6MSlkiPrl3Bgt7S/zdbtDVJldoA6n1re3Z4EjylXrs/4kyMQyDcO2bqdU7P80E689S26Wk+goEGV+WwtWLwWArVwKgX4jen4bAHC628ObAXTcfys1G664Z9B2Vjr1CGa+uSvrRjY68jFL5rpMWlL6KuR6yI9amwbrPoCXYj/Gn6UrOFzG7P7uH0vbGjMrpwCOIeHdgbiYqExMZE=
+  - secure: Oo1NchTw2qSBpcGFqKr+EWpYrZ8Bf3TZ/eKLDIKtVfnBuVLa549PpI7D4fY/CUxA3PVTcvH0PghLOcBPmEynUrWzcb2DW5q4UBCisF5I09kdb2xjOVFKWfU8+CcxJiZ94OU8mhJ0TbGW9+OvMIlPjYQxLJWkRoJuzdH54G5Aghcxm3kpf4yztNdRp4lBNNweevaUji/49Emu6HouwaaQYmUoz60AJqwlspie4CgofJCNEXsEAPjW+pWCnJ/LGcIVH2VtoBrJug1HamqKL/1ehgackAjL9VqOj83FNOd5cX0JnkWr1CZO71kWMeCZr+f66213Iz41dtOUybtE07YVIlyR1Z/MozrV4tBGatQ6rJSbMqyp11DoyHcfRsSNsGQ251mVmX1zPsvoqADrfQQ1alhxxDQZsqRkQiIkHDFLhfdkz76OyHVFP6NVpX11jHAS38EOW4p75rXm8fdgGvHndRMaXDRSe01xOJcVOCsJdLHG9X9j1WzHUyJo8gnYRnq9r29/kSKLNzh1/kPG803HCUHt0XNxr5lw9RzEEb4fuZJ3PMnuHez07CEAf1iDVdl3HMiexcogLKpStJ9qvU/AMKE2pJlcT96pqJRbXenbF528j1bifL54G/IXuyktPUKOjm5g9shw/4eHau1AgneVNhftNyPeaRQStPGlZ+QyFGQ=

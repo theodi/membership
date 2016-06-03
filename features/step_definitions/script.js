@@ -4,11 +4,11 @@ var Fs = require("fs")
 var expect = require('chai').expect
 var cheerio = require('cheerio')
 
-Mink.Given(/^I inject the script "([^"]*)"$/, function (script) {
-  return this.driver.html().then(html => {
-    js = Fs.readFileSync(script, {encoding: 'utf-8'})
-    this.driver.client.execute(js)
-  });
+Mink.Given(/^I inject the script "([^"]*)"$/, function (script, callback) {
+  js = Fs.readFileSync(script, {encoding: 'utf-8'})
+  this.driver.client.execute(js)
+
+  callback();
 });
 
 Mink.Then(/^I should see the text "([^"]*)" in the "([^"]*)" element$/, function (expected, selector) {
@@ -33,7 +33,7 @@ Mink.Then(/^the selector "([^"]*)" should be contained inside the "([^"]*)" sele
 });
 
 
-Mink.Then(/^the first letter of each header and input element should be wrapped in a span$/, function () {
+Mink.Then(/^the first letter of each header and input element should be wrapped in a span$/, function (callback) {
   [
     "<span>M</span>embers benefit from:",
     "<span>T</span>ax Information:",
@@ -69,4 +69,6 @@ Mink.Then(/^the first letter of each header and input element should be wrapped 
       expect(err).to.be.a('null');
     });
   })
+
+  callback();
 });
