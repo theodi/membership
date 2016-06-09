@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/theodi/membership#readme",
   "dependencies": {
+    "capsule-crm": "0.0.8",
     "cheerio": "^0.20.0",
     "cucumber": "^1.0.0",
     "cucumber-mink": "^1.2.3",
