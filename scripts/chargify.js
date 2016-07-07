@@ -102,15 +102,48 @@ $(function(){
   // Hide tax
   tax.addClass('hidden')
 
-  // Hide additional fields container
-
-  $('.metafield_configuration').addClass('hidden')
-  $('.metafield_configuration').prev('h2').addClass('hidden')
-
   // Move Sector field
 
   $('#metafield_row_13320 p').attr('class','right')
   $('#metafield_row_13320 p').insertAfter($('#contact_info p:last'))
+  $('#metafield_row_13320').addClass('hidden')
+
+  // Move nodes field
+
+  nodeWrapper = $('<div id="nodes" class="fieldset"></div>')
+  nodeWrapper.append($('<h2><span>A</span>re you affiliated with an <span>ODI</span> Node?</h2>'))
+
+  nodeSection = $('<div class="section_four"></div>')
+  nodeWrapper.append(nodeSection)
+
+  input = $('#metafield_row_13830').find('input')
+  nodes = ['Aberdeen','Accra','Athens','Belfast','Birmingham','Brasilia','Bristol','Cairo','Cardiff','Cornwall','Devon','Dubai','Galway','Gothenburg','Hampshire','Leeds','Madrid','Osaka','Ottawa','Paris','Queensland','Rio','Riyadh','Rome','Seoul','St Petersburg','Toronto','Trento','Vienna']
+  select = $('<select>')
+  select.attr('name', input.attr('name'))
+  select.attr('id', input.attr('id'))
+  select.append('<option value="">Please Select</option>')
+
+  $.each(nodes, function(i, node) {
+    option = $('<option>' + node + '</option>')
+    if (getUrlParam('coupon_code').match(new RegExp('ODI' + node.replace(' ', '') , 'i'))) {
+      option.attr('selected', 'selected')
+    }
+    select.append(option)
+  })
+
+  $('#contact_info').append($('#metafield_row_13830'))
+  input.replaceWith(select)
+
+  nodeSection.append($('#metafield_row_13830'))
+
+  nodeWrapper.insertAfter('#my_contact')
+
+  // Change Radio buttons to checkbox
+
+  $('#metafield_row_13843 .radio ul').remove()
+  $('#metafield_row_13843 .radio legend').remove()
+  $('#metafield_row_13843 .radio').append('<input type="checkbox" id="subscription[metafields][13843]" name="subscription[metafields][13843]" class="terms" value="Yes" />')
+  $('<label for="subscription[metafields][13843]" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_13843 .radio input'))
 
   // Autopopulate Billing name
   $('#subscription_customer_attributes_first_name').keyup(function() {
