@@ -58,4 +58,8 @@ $(function(){
     }
   })
 
+  $('#metafield_13830').val(getUrlParam('node'))
+  $('#metafield_13830').prop('type', 'hidden')
+  $('#metafield_row_13830').addClass('hidden')
+
 })
