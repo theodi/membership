@@ -1,3 +1,7 @@
+var sectorField = '13858';
+var nodeField = '13860';
+var newsletterField = '13859';
+
 $(function(){
   $('label[for="subscription_payment_profile_attributes_billing_zip"]').text("Postcode");
   $('#accept_terms').prop('checked', true);
@@ -39,16 +43,16 @@ $(function(){
 
   // Move Sector field
 
-  $('#metafield_row_13320 p').attr('class','right')
-  $('#metafield_row_13320 p').insertAfter($('#contact_info p:last'))
-  $('#metafield_row_13320').addClass('hidden')
+  $('#metafield_row_'+ sectorField +' p').attr('class','right')
+  $('#metafield_row_'+ sectorField +' p').insertAfter($('#contact_info p:last'))
+  $('#metafield_row_'+ sectorField +'').addClass('hidden')
 
   // Change Radio buttons to checkbox
 
-  $('#metafield_row_13843 .radio ul').remove()
-  $('#metafield_row_13843 .radio legend').remove()
-  $('#metafield_row_13843 .radio').append('<input type="checkbox" id="subscription[metafields][13843]" name="subscription[metafields][13843]" class="terms" value="Yes" />')
-  $('<label for="subscription[metafields][13843]" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_13843 .radio input'))
+  $('#metafield_row_'+ newsletterField +' .radio ul').remove()
+  $('#metafield_row_'+ newsletterField +' .radio legend').remove()
+  $('#metafield_row_'+ newsletterField +' .radio').append('<input type="checkbox" id="subscription[metafields]['+ newsletterField +']" name="subscription[metafields]['+ newsletterField +']" class="terms" value="Yes" />')
+  $('<label for="subscription[metafields]['+ newsletterField +']" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_'+ newsletterField +' .radio input'))
 
   // Sentence case all labels and titles
   $('label, h2').each(function() {
@@ -58,8 +62,8 @@ $(function(){
     }
   })
 
-  $('#metafield_13830').val(getUrlParam('node'))
-  $('#metafield_13830').prop('type', 'hidden')
-  $('#metafield_row_13830').addClass('hidden')
+  $('#metafield_'+ nodeField +'').val(getUrlParam('node'))
+  $('#metafield_'+ nodeField +'').prop('type', 'hidden')
+  $('#metafield_row_'+ nodeField +'').addClass('hidden')
 
 })

@@ -1,3 +1,9 @@
+var sectorField = '13858';
+var nodeField = '13860';
+var newsletterField = '13859';
+var repField = '13856'
+var companyField = '13857'
+
 $(function(){
   $('label[for="subscription_payment_profile_attributes_billing_zip"]').text("Postcode");
   $('#accept_terms').prop('checked', true);
@@ -38,14 +44,14 @@ $(function(){
   billingInfo.insertAfter(summary)
   billingAddress.insertAfter(billingInfo)
 
-  $('#metafield_row_13320 p').attr('class','right')
-  $('#metafield_row_13320 p').insertAfter($('#contact_info p:last'))
-  $('#metafield_row_13320').addClass('hidden')
+  $('#metafield_row_'+ sectorField +' p').attr('class','right')
+  $('#metafield_row_'+ sectorField +' p').insertAfter($('#contact_info p:last'))
+  $('#metafield_row_'+ sectorField +'').addClass('hidden')
 
-  $('#metafield_row_13843 .radio ul').remove()
-  $('#metafield_row_13843 .radio legend').remove()
-  $('#metafield_row_13843 .radio').append('<input type="checkbox" id="subscription[metafields][13843]" name="subscription[metafields][13843]" class="terms" value="Yes" />')
-  $('<label for="subscription[metafields][13843]" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_13843 .radio input'))
+  $('#metafield_row_'+ newsletterField +' .radio ul').remove()
+  $('#metafield_row_'+ newsletterField +' .radio legend').remove()
+  $('#metafield_row_'+ newsletterField +' .radio').append('<input type="checkbox" id="subscription[metafields]['+ newsletterField +']" name="subscription[metafields]['+ newsletterField +']" class="terms" value="Yes" />')
+  $('<label for="subscription[metafields]['+ newsletterField +']" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_'+ newsletterField +' .radio input'))
 
   // Autopopulate Billing name
   $('#subscription_customer_attributes_first_name').keyup(function() {
@@ -66,11 +72,11 @@ $(function(){
 
   // Change Radio buttons to checkbox
 
-  $('#metafield_row_13855 .radio ul').remove()
-  $('#metafield_row_13855 .radio legend').remove()
-  $('#metafield_row_13855 .radio').append('<input type="checkbox" id="subscription[metafields][13855]" name="subscription[metafields][13855]" class="terms" value="Yes" />')
-  $('<label for="subscription[metafields][13855]" id="newsletter"> <span>T</span>ick this box if you are happy to be contacted by our regional rep</label>').insertAfter(('#metafield_row_13855 .radio input'))
+  $('#metafield_row_'+ repField +' .radio ul').remove()
+  $('#metafield_row_'+ repField +' .radio legend').remove()
+  $('#metafield_row_'+ repField +' .radio').append('<input type="checkbox" id="subscription[metafields]['+ repField +']" name="subscription[metafields]['+ repField +']" class="terms" value="Yes" />')
+  $('<label for="subscription[metafields]['+ repField +']" id="newsletter"> <span>T</span>ick this box if you are happy to be contacted by our regional rep</label>').insertAfter(('#metafield_row_'+ repField +' .radio input'))
 
-  $('#metafield_row_13854').insertAfter($('#contact_info div.row:last'))
-  //$('#metafield_row_13854').addClass('hidden')
+  $('#metafield_row_'+ companyField +'').insertAfter($('#contact_info div.row:last'))
+  //$('#metafield_row_'+ companyField +'').addClass('hidden')
 })

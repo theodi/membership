@@ -1,3 +1,8 @@
+var componentID = '155171';
+var sectorField = '13858';
+var nodeField = '13860';
+var newsletterField = '13859';
+
 function hideRecurringLineItem(){
   $('#summary-recurring-charges').hide();
   $('.line-item_tax').hide();
@@ -10,11 +15,11 @@ function hideRecurringLineItem(){
 
 function checkMinAmount(f) {
   return function(arg) {
-    if (parseInt($('#component_allocated_quantity_152654').val()) > 0) {
+    if (parseInt($('#component_allocated_quantity_' + componentID).val()) > 0) {
       f.call(this, arg)
     } else {
       alert('The minimum amount you can choose to pay is £1')
-      $('#component_allocated_quantity_152654').val(1)
+      $('#component_allocated_quantity_' + componentID).val(1)
       f.call(this, arg)
     }
   }
@@ -104,9 +109,9 @@ $(function(){
 
   // Move Sector field
 
-  $('#metafield_row_13320 p').attr('class','right')
-  $('#metafield_row_13320 p').insertAfter($('#contact_info p:last'))
-  $('#metafield_row_13320').addClass('hidden')
+  $('#metafield_row_'+ sectorField +' p').attr('class','right')
+  $('#metafield_row_'+ sectorField +' p').insertAfter($('#contact_info p:last'))
+  $('#metafield_row_'+ sectorField +'').addClass('hidden')
 
   // Move nodes field
 
@@ -116,7 +121,7 @@ $(function(){
   nodeSection = $('<div class="section_four"></div>')
   nodeWrapper.append(nodeSection)
 
-  input = $('#metafield_row_13830').find('input')
+  input = $('#metafield_row_'+ nodeField +'').find('input')
   nodes = ['Aberdeen','Accra','Athens','Belfast','Birmingham','Brasilia','Bristol','Cairo','Cardiff','Cornwall','Devon','Dubai','Galway','Gothenburg','Hampshire','Leeds','Madrid','Osaka','Ottawa','Paris','Queensland','Rio','Riyadh','Rome','Seoul','St Petersburg','Toronto','Trento','Vienna']
   select = $('<select>')
   select.attr('name', input.attr('name'))
@@ -131,19 +136,19 @@ $(function(){
     select.append(option)
   })
 
-  $('#contact_info').append($('#metafield_row_13830'))
+  $('#contact_info').append($('#metafield_row_'+ nodeField +''))
   input.replaceWith(select)
 
-  nodeSection.append($('#metafield_row_13830'))
+  nodeSection.append($('#metafield_row_'+ nodeField +''))
 
   nodeWrapper.insertAfter('#my_contact')
 
   // Change Radio buttons to checkbox
 
-  $('#metafield_row_13843 .radio ul').remove()
-  $('#metafield_row_13843 .radio legend').remove()
-  $('#metafield_row_13843 .radio').append('<input type="checkbox" id="subscription[metafields][13843]" name="subscription[metafields][13843]" class="terms" value="Yes" />')
-  $('<label for="subscription[metafields][13843]" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_13843 .radio input'))
+  $('#metafield_row_'+ newsletterField +' .radio ul').remove()
+  $('#metafield_row_'+ newsletterField +' .radio legend').remove()
+  $('#metafield_row_'+ newsletterField +' .radio').append('<input type="checkbox" id="subscription[metafields]['+ newsletterField +']" name="subscription[metafields]['+ newsletterField +']" class="terms" value="Yes" />')
+  $('<label for="subscription[metafields]['+ newsletterField +']" id="newsletter"> <span>S</span>ubscribe to our newsletter?</label>').insertAfter(('#metafield_row_'+ newsletterField +' .radio input'))
 
   // Autopopulate Billing name
   $('#subscription_customer_attributes_first_name').keyup(function() {
